@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic List Manipulation</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <ul id="item-list">
+        <li style="font-weight: bold; color: blue;">Item 1</li>
+        <li style="font-style: italic; color: red;">Item 2</li>
+        <li style="font-weight: bold; color: blue;">Item 3</li>
+    </ul>
+    
+    <button id="add-item">Add Item</button>
+
+    <script>
+        // Select the <ul> element
+        const ul = document.querySelector("#item-list");
+
+        // Select the button
+        const button = document.querySelector("#add-item");
+
+        // Add event listener to button
+        button.addEventListener("click", function() {
+            // Create a new <li> element
+            const newItem = document.createElement("li");
+
+            // Get the current number of <li> items to determine sequence number
+            const itemCount = ul.children.length + 1;
+            newItem.textContent = `Item ${itemCount}`;
+
+            // Apply styles based on sequence number
+            if (itemCount % 2 === 1) {
+                newItem.style.fontWeight = "bold";
+                newItem.style.color = "blue";
+            } else {
+                newItem.style.fontStyle = "italic";
+                newItem.style.color = "red";
+            }
+
+            // Append the new <li> to the <ul>
+            ul.appendChild(newItem);
+        });
+    </script>
+
+</body>
+</html>

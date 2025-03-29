@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+    <style>
+        .container {
+            padding: 20px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="main-heading">Original Heading</h1>
+    
+    <div class="container">
+        <p>First paragraph inside the container.</p>
+        <p>Second paragraph inside the container.</p>
+    </div>
+
+    <p>This is an additional paragraph outside the container.</p>
+
+    <script>
+        // Select the <h1> element by its id and change its text content
+        document.getElementById("main-heading").textContent = "Welcome to the DOM World!";
+
+        // Select all <p> elements and change their text color to blue
+        let paragraphs = document.getElementsByTagName("p");
+        for (let i = 0; i < paragraphs.length; i++) {
+            paragraphs[i].style.color = "blue";
+        }
+
+        // Use querySelector to select the first <div> with class "container" and change its background color
+        document.querySelector(".container").style.backgroundColor = "yellow";
+    </script>
+
+</body>
+</html>
